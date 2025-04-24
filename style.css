@@ -41,6 +41,7 @@
 --color-14:#AE3F3F;
 --color-15: #0010A1;
 --color-16: #000000;
+--color-17:#A2A2A2;
 
   /* BACKGROUND COLORS */
 --bg-primary:var(--color-4);
@@ -278,6 +279,7 @@ article>a {
 article>a:hover {
   box-shadow: inset 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
+/* Nota: iba a hacer lo que hago a continuación de pulsando cualquier color cambia el coche, pero resulta que no se puede hacer con botones. Así que he aprovechado que tengo Photoshop para hacer los círculos en png. Ya dijo el profe en la clase grabada que esto se hace más fácil con JS, pero me gustó mucho. */
 article>label {
   grid-column: 2/5;
   grid-row:8/9;
@@ -338,7 +340,6 @@ input {display: none;}
   display:none;
   width:0px;
 }
-/* Producto 2 */
 #rojo-2:checked ~ .car-2-rojo, #negro-2:checked ~ .default-car-2, #amarillo-2:checked ~ .car-2-amarillo {
   display: grid;
   width: 100%;
@@ -366,7 +367,6 @@ input {display: none;}
   display:none;
   width:0px;
 }
-/* Producto 3 */
 #rojo-3:checked ~ .car-3-rojo, #negro-3:checked ~ .default-car-3, #azul-3:checked ~ .car-3-azul {
   display: grid;
   width: 100%;
@@ -394,7 +394,6 @@ input {display: none;}
   display:none;
   width:0px;
 }
-/* Producto 4 */
 #rojo-4:checked ~ .car-4-rojo, #negro-4:checked ~ .default-car-4, #amarillo-4:checked ~ .car-4-amarillo {
   display: grid;
   width: 100%;
@@ -421,6 +420,120 @@ input {display: none;}
 #amarillo-4:checked ~ .default-car-4, #amarillo-4:checked ~ .car-4-rojo {
   display:none;
   width:0px;
+}
+.dealer {
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: center;
+padding: var(--padding-s) 0px var(--padding-s) var(--padding-l);
+}
+.dealer >h2>span, .dealer >h3 {
+  color: var(--font-color-1);
+  font-family: var(--Font-2);
+  font-weight: 100;
+  text-wrap: normal;
+}
+.dealer >h2 {
+  font-size: 85px;
+  display: flex;
+  flex-direction: column;
+}
+.dealer >h3 {
+  font-size: 18px;
+  width:40%;
+  padding-top: var(--padding-xxs);
+}
+.usa {
+  display: flex;
+  background-image: url(./Assets/USA.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  max-height:800px;
+  min-height:330px;
+  object-fit: contain;
+  object-position: center;
+  margin: var(--margin-s) 0px var(--margin-s) 0px;
+  justify-content: flex-start;
+  padding-left: var(--padding-s);
+}
+.usa>div {
+  background-color: rgba(162, 162, 162, 0.51);
+  padding: var(--padding-s) var(--padding-xl)var(--padding-s) var(--padding-m);
+  border-radius: var(--border-radius-article);
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-start;
+  max-width:470px;
+}
+.usa>div>h4, .usa>div>a{
+  display: flex;
+  flex-direction: column;
+}
+.usa>div>h4 {
+  padding-bottom: var(--padding-s);
+  align-items: flex-start;
+}
+.usa>div>h4>span, .usa>div>a {
+  font-weight: 100;
+}
+.usa>div>h4>span {
+  font-size: 50px;
+  color: var(--font-color-2);
+}
+.usa>div>a {
+  font-size: 20px;
+  color: var(--font-color-1);
+  padding: var(--padding-xs) var(--padding-l);
+  border-radius: var(--border-radius-btn-1);
+  background-color: var(--color-1);
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  text-align: center;
+  width: fit-content;
+}
+.usa>div>a:hover {
+  box-shadow: inset 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+ .section-with-scroll {
+  display: grid;
+  column-gap: var(--gap-s);
+  grid-auto-flow: column;
+  grid-auto-columns: 36%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-arrow-color: var(--scroll-bg-color);
+  padding: var(--padding-s);
+margin-bottom: var(--margin-s);
+ }
+.section-with-scroll>article {
+ width: auto;
+grid-template-columns: 1fr;
+grid-template-rows: repeat(6, 1fr);
+gap: var(--gap-s);
+}
+
+.section-with-scroll>article>h2 {
+grid-row:1/2;
+}
+.section-with-scroll>article>img{
+  grid-row: 2/5;
+  width:90%;
+  justify-self:center;
+  align-self: center;
+  object-fit: cover;
+}
+.section-with-scroll>article>a{
+  grid-row: 5/7;
+}
+.temptation {
+  background-image: url(./Assets/temptation.png);
+  width:100%;
+  height:600px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 /* MEDIA QUERIES */
 @media(min-width:2000px) {
@@ -494,7 +607,31 @@ input {display: none;}
     article>label:nth-last-of-type(4){
       right:260px;
     }
-}
+    .dealer >h2 {
+      font-size: 250px;
+      }
+    .dealer >h3 {
+      font-size: 50px;
+      width:45%;
+      padding-top: var(--padding-s);
+    }
+    .usa {
+      display: flex;
+      background-image: url(./Assets/USA.png);
+      width: 100%;
+    height:1500px;
+    max-height:1500px;
+    padding-left: var(--padding-xxl);
+    }
+    .usa>div {
+      padding: var(--padding-s) var(--padding-xxxl)var(--padding-s) var(--padding-l);
+      max-width:600px;
+      width:100%
+    }
+    .usa>div>h4>span {
+      font-size: 60px;
+    }
+  }
 @media(max-width:2000px) and (min-width:1350px) {
   .header {
     height: 100px;
@@ -556,6 +693,34 @@ input {display: none;}
     article>label:nth-last-of-type(4){
       right:260px;
     }
+    .dealer >h2 {
+      font-size: 130px;
+      display: flex;
+      flex-direction: column;
+    }
+    .dealer >h3 {
+      font-size: 30px;
+      padding-top: var(--padding-s);
+    }
+    .usa {
+      display: flex;
+      background-image: url(./Assets/USA.png);
+      width: 100%;
+    height:1000px;
+    max-height:1000px;
+    padding-left: var(--padding-xxl);
+    }
+    .usa>div {
+      padding: var(--padding-s) var(--padding-xxxl)var(--padding-s) var(--padding-l);
+      max-width:550px;
+      width:100%
+    }
+    .usa>div>h4>span {
+      font-size: 55px;
+    }
+    .usa>div>a{
+      font-size: 18px;
+    }
   }
 @media (max-width:1350px) and (min-width: 1200px) {
   .header {
@@ -598,6 +763,34 @@ article>a {
 article>label>img {
   width:45px;
 }
+.dealer >h2 {
+  font-size: 110px;
+  display: flex;
+  flex-direction: column;
+}
+.dealer >h3 {
+  width:45%;
+  font-size: 30px;
+}
+.usa {
+  display: flex;
+  background-image: url(./Assets/USA.png);
+  width: 100%;
+height:900px;
+max-height:900px;
+padding-left: var(--padding-xxl);
+}
+.usa>div {
+  padding: var(--padding-s) var(--padding-xxxl)var(--padding-s) var(--padding-l);
+  max-width:530px;
+  width:100%
+}
+.usa>div>h4>span {
+  font-size: 50px;
+}
+.usa>div>a{
+  font-size: 16px;
+}
 }
 @media (max-width: 1200px) and (min-width:950px) {
   .hero {
@@ -628,6 +821,32 @@ article>a {
 }
 article>label>img {
   width: 40px;
+}
+.dealer >h2 {
+  font-size: 100px;
+}
+.dealer >h3 {
+  font-size: 25px;
+  width:50%;
+}
+.usa {
+  display: flex;
+  background-image: url(./Assets/USA.png);
+  width: 100%;
+height:750px;
+max-height:750px;
+padding-left: var(--padding-xxl);
+}
+.usa>div {
+  padding: var(--padding-s) var(--padding-xxxl)var(--padding-s) var(--padding-l);
+  max-width:530px;
+  width:100%
+}
+.usa>div>h4>span {
+  font-size: 50px;
+}
+.usa>div>a{
+  font-size: 16px;
 }
 }
 @media (max-width: 950px) and (min-width: 885px) {
@@ -682,6 +901,32 @@ article>label:nth-last-of-type(3){
 }
 article>label:nth-last-of-type(4){
   right:150px;
+}
+.dealer >h2 {
+  font-size: 90px;
+}
+.dealer >h3 {
+  font-size: 20px;
+  width:50%;
+}
+.usa {
+  display: flex;
+  background-image: url(./Assets/USA.png);
+  width: 100%;
+height:750px;
+max-height:750px;
+padding-left: var(--padding-xxl);
+}
+.usa>div {
+  padding: var(--padding-s) var(--padding-xxl)var(--padding-s) var(--padding-l);
+  max-width:400px;
+  width:100%
+}
+.usa>div>h4>span {
+  font-size: 35px;
+}
+.usa>div>a{
+  font-size: 12px;
 }
 }
 @media (max-width: 885px) and (min-width: 700px) {
@@ -753,6 +998,29 @@ article>label:nth-last-of-type(3){
 article>label:nth-last-of-type(4){
   right:130px;
 }
+.dealer >h3 {
+  width:50%;
+}
+.usa {
+  display: flex;
+  background-image: url(./Assets/USA.png);
+  width: 100%;
+height:600px;
+max-height:600px;
+padding-left: var(--padding-xxl);
+}
+.usa>div {
+  padding: var(--padding-xs) var(--padding-xl)var(--padding-xs) var(--padding-m);
+  max-width:375px;
+  width:100%
+}
+.usa>div>h4>span {
+  font-size: 35px;
+}
+.usa>div>a{
+  font-size: 12px;
+  padding: var(--padding-xxs) var(--padding-m);
+}
 }
 @media (max-width: 700px) {
 .hero {
@@ -801,6 +1069,70 @@ article>label>img {
 #rojo-1:checked ~ .car-1-rojo, #gris-1:checked ~ .default-car-1, #azul-1:checked ~ .car-1-azul, #negro-1:checked ~ .car-1-negro, #rojo-2:checked ~ .car-2-rojo, #negro-2:checked ~ .default-car-2, #amarillo-2:checked ~ .car-2-amarillo, #rojo-3:checked ~ .car-3-rojo, #negro-3:checked ~ .default-car-3, #azul-3:checked ~ .car-3-azul, #rojo-4:checked ~ .car-4-rojo, #negro-4:checked {
   max-height: 300px
 }
+.dealer {
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-xs) 0px var(--padding-xs) 0px;
+ text-align: center;
+  }
+  .dealer >h2 {
+    font-size: 65px;
+  }
+  .dealer >h3 {
+    width:80%;
+    padding-top: var(--padding-xxs);
+  }
+  .usa {
+  display: flex;
+  background-image: url(./Assets/USA.png);
+  width: 100%;
+height:600px;
+max-height:600px;
+padding-left: var(--padding-xxl);
+}
+.usa>div {
+  padding: var(--padding-xs) var(--padding-xl)var(--padding-xs) var(--padding-m);
+  max-width:375px;
+  width:100%
+}
+.usa>div>h4>span {
+  font-size: 35px;
+}
+.usa>div>a{
+  font-size: 12px;
+  padding: var(--padding-xxs) var(--padding-m);
+}
+.usa {
+  display: flex;
+  background-image: url(./Assets/USA.png);
+  width: 100%;
+height:400px;
+max-height:400px;
+padding-left: 0px;
+justify-content: center;
+align-items: center;
+}
+.usa>div {
+  padding: var(--padding-xs);
+   width:90%;
+   height: 90%;
+   max-width:none;
+   align-content: center;
+   justify-content: center;
+}
+.usa>div>h4 {
+  padding-bottom: var(--padding-m);
+  align-items: center;
+}
+.usa>div>h4>span {
+  font-size: 65px;
+}
+.usa>div>a{
+  font-size: 22px;
+  padding: var(--padding-xxs) var(--padding-m);
+  align-self: center;
+}
 }
 @media (max-width: 653px) {
   .hero {
@@ -820,14 +1152,19 @@ article>label>img {
   .header {
   height:70px;
 }
+header>nav>ul>li>a>img, .header-icons>img {
+  width:25px;
+  height:25px;
+  cursor: pointer;
+}
   nav>ul>li:not(:first-child) {
     display: none;
     width: 0px;
   }
   .burger-menu {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
   }
   .products {
     display:grid;
@@ -860,5 +1197,30 @@ article>label>img {
   article>label>img {
     display:none;
     width:0px;
+  }
+    .dealer >h2 {
+      font-size: 45px;
+    }
+    .dealer >h3 {
+       width:80%;
+    }
+    .usa>div>h4>span {
+      font-size: 50px;
+    }
+    .usa>div>a{
+      font-size: 18px;
+      padding: var(--padding-xxs) var(--padding-m);
+      align-self: center;
+    }
+
+}
+@media (max-width:442px) {
+  .usa>div>h4>span {
+    font-size: 35px;
+  }
+  .usa>div>a{
+    font-size: 14px;
+    padding: var(--padding-xxs) var(--padding-m);
+    align-self: center;
   }
 }
