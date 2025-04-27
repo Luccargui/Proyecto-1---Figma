@@ -501,15 +501,14 @@ padding: var(--padding-s) 0px var(--padding-s) var(--padding-l);
   display: grid;
   column-gap: var(--gap-s);
   grid-auto-flow: column;
-  grid-auto-columns: 36%;
+  grid-auto-columns: 38%;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   scrollbar-arrow-color: var(--scroll-bg-color);
-  padding: var(--padding-s);
-margin-bottom: var(--margin-s);
+  padding: var(--padding-m);
  }
-.section-with-scroll>article {
- width: auto;
+.section-with-scroll>article.grid-container {
+ width: 90%;
 grid-template-columns: 1fr;
 grid-template-rows: repeat(6, 1fr);
 gap: var(--gap-s);
@@ -518,7 +517,7 @@ gap: var(--gap-s);
 .section-with-scroll>article>h2 {
 grid-row:1/2;
 }
-.section-with-scroll>article>img{
+.section-with-scroll>article.grid-container>img{
   grid-row: 2/5;
   width:90%;
   justify-self:center;
@@ -531,9 +530,55 @@ grid-row:1/2;
 .temptation {
   background-image: url(./Assets/temptation.png);
   width:100%;
-  height:600px;
+  height:450px;
   background-repeat: no-repeat;
   background-size: cover;
+    display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: var(--margin-s)   ;
+}
+.temptation> div.tempting-texts{
+  padding: var(--padding-m) var(--padding-xl);
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+gap: var(--gap-xxs);
+
+}
+.temptation> div.tempting-texts>h4, .temptation> div.tempting-texts>p {
+  color: var(--font-color-2);
+  font-family: var(--Font-1);
+  font-weight: 100;
+}
+.temptation> div.tempting-texts>h4 {
+  font-size: 50px;
+}
+.temptation> div.tempting-texts>p {
+  font-size: 14px;
+  width:30%;
+}
+.wheel-programme {
+  grid-template-columns: 1fr 1fr;
+  padding: var(--padding-s);
+  height:600px;
+}
+.wheel-programme>div {
+  display: grid;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--gap-s);
+  width: 90%;
+}
+.wheel-programme>div>h4, .wheel-programme>div>p {
+  font-weight: 100;
+}
+.wheel-programme>div>h4 {
+font-size: 40px;
+}
+.wheel-programme>img {
+  width: 80%;
 }
 /* MEDIA QUERIES */
 @media(min-width:2000px) {
@@ -631,6 +676,17 @@ grid-row:1/2;
     .usa>div>h4>span {
       font-size: 60px;
     }
+
+.temptation {
+  height:1000px;
+}
+.temptation> div.tempting-texts>h4 {
+  font-size: 80px;
+}
+.temptation> div.tempting-texts>p {
+  font-size: 30px;
+  width:35%;
+}
   }
 @media(max-width:2000px) and (min-width:1350px) {
   .header {
@@ -721,6 +777,16 @@ grid-row:1/2;
     .usa>div>a{
       font-size: 18px;
     }
+    .temptation {
+      height:700px;
+    }
+    .temptation> div.tempting-texts>h4 {
+      font-size: 60px;
+    }
+    .temptation> div.tempting-texts>p {
+      font-size: 24px;
+      width:40%;
+    }
   }
 @media (max-width:1350px) and (min-width: 1200px) {
   .header {
@@ -791,6 +857,16 @@ padding-left: var(--padding-xxl);
 .usa>div>a{
   font-size: 16px;
 }
+.temptation {
+  height:600px;
+}
+.temptation> div.tempting-texts>h4 {
+  font-size: 55px;
+}
+.temptation> div.tempting-texts>p {
+  font-size: 20px;
+  width:40%;
+}
 }
 @media (max-width: 1200px) and (min-width:950px) {
   .hero {
@@ -847,6 +923,22 @@ padding-left: var(--padding-xxl);
 }
 .usa>div>a{
   font-size: 16px;
+}
+.section-with-scroll {
+height:600px;
+ }
+.section-with-scroll>article.grid-container {
+height:450px;
+}
+.temptation {
+  height:475px;
+}
+.temptation> div.tempting-texts>h4 {
+  font-size: 45px;
+}
+.temptation> div.tempting-texts>p {
+  font-size: 16px;
+  width:40%;
 }
 }
 @media (max-width: 950px) and (min-width: 885px) {
@@ -928,6 +1020,32 @@ padding-left: var(--padding-xxl);
 .usa>div>a{
   font-size: 12px;
 }
+.section-with-scroll {
+  height:700px;
+  grid-auto-columns: 90%;
+   }
+   .section-with-scroll img {
+    max-height: 300px;
+   }
+   .temptation {
+     height:450px;
+ position: relative;
+  }
+  .temptation> div.tempting-texts{
+position: absolute;
+bottom: -150px;
+background-color: var(--color-5);
+padding: var(--padding-s);
+justify-content: center;
+align-items: center;
+  }
+  .temptation> div.tempting-texts>h4, .temptation> div.tempting-texts>p {
+    color: var(--font-color-1);
+    text-align: center;
+  }
+  .temptation> div.tempting-texts>p {
+   width:70%;
+    }
 }
 @media (max-width: 885px) and (min-width: 700px) {
   .header {
@@ -1021,6 +1139,33 @@ padding-left: var(--padding-xxl);
   font-size: 12px;
   padding: var(--padding-xxs) var(--padding-m);
 }
+.section-with-scroll {
+  height:600px;
+  grid-auto-columns: 90%;
+   }
+   .section-with-scroll img {
+    max-height: 300px;
+   }
+   .temptation {
+    height: 400px;
+position: relative;
+background-position: right ;
+ }
+ .temptation> div.tempting-texts{
+position: absolute;
+bottom: -150px;
+background-color: var(--color-5);
+padding: var(--padding-s);
+justify-content: center;
+align-items: center;
+ }
+ .temptation> div.tempting-texts>h4, .temptation> div.tempting-texts>p {
+   color: var(--font-color-1);
+   text-align: center;
+ }
+ .temptation> div.tempting-texts>p {
+  width:70%;
+   }
 }
 @media (max-width: 700px) {
 .hero {
@@ -1133,6 +1278,33 @@ align-items: center;
   padding: var(--padding-xxs) var(--padding-m);
   align-self: center;
 }
+.section-with-scroll {
+  height:450px;
+  grid-auto-columns: 90%;
+   }
+   .section-with-scroll img {
+    max-height: 300px;
+   }
+   .temptation {
+    height: 400px;
+position: relative;
+background-position: right ;
+ }
+ .temptation> div.tempting-texts{
+position: absolute;
+bottom: -150px;
+background-color: var(--color-5);
+padding: var(--padding-s);
+justify-content: center;
+align-items: center;
+ }
+ .temptation> div.tempting-texts>h4, .temptation> div.tempting-texts>p {
+   color: var(--font-color-1);
+   text-align: center;
+ }
+ .temptation> div.tempting-texts>p {
+  width:70%;
+   }
 }
 @media (max-width: 653px) {
   .hero {
@@ -1212,15 +1384,84 @@ header>nav>ul>li>a>img, .header-icons>img {
       padding: var(--padding-xxs) var(--padding-m);
       align-self: center;
     }
-
+    .temptation {
+      height: 310px;
+  position: relative;
+  background-position: right ;
+   }
+   .temptation> div.tempting-texts{
+  position: absolute;
+  bottom: -140px;
+  background-color: var(--color-5);
+  padding: var(--padding-xxs);
+  justify-content: center;
+  align-items: center;
+   }
+   .temptation> div.tempting-texts>h4, .temptation> div.tempting-texts>p {
+     color: var(--font-color-1);
+     text-align: center;
+   }
+   .temptation> div.tempting-texts>p {
+    width:80%;
+     }
+}
+@media (max-width:500px) {
+  .temptation {
+    height: 270px;
+position: relative;
+background-position: right;
+ }
+ .temptation> div.tempting-texts{
+position: absolute;
+bottom: -130px;
+background-color: var(--color-5);
+padding: var(--padding-xs) var(--padding-xxs) var(--padding-s) var(--padding-xxs);
+justify-content: center;
+align-items: center;
+ }
+ .temptation> div.tempting-texts>h4, .temptation> div.tempting-texts>p {
+   color: var(--font-color-1);
+   text-align: center;
+ }
+ .temptation> div.tempting-texts>h4 {
+  font-size: 28px;
+}
+ .temptation> div.tempting-texts>p {
+  width:70%;
+  font-size: 10px;
+   }
 }
 @media (max-width:442px) {
   .usa>div>h4>span {
-    font-size: 35px;
+    font-size: 30px;
   }
   .usa>div>a{
-    font-size: 14px;
+    font-size: 12px;
     padding: var(--padding-xxs) var(--padding-m);
     align-self: center;
   }
+  .temptation {
+    height: 250px;
+position: relative;
+background-position: right;
+ }
+ .temptation> div.tempting-texts{
+position: absolute;
+bottom: -130px;
+background-color: var(--color-5);
+padding: var(--padding-xs) var(--padding-xxs) var(--padding-s) var(--padding-xxs);
+justify-content: center;
+align-items: center;
+ }
+ .temptation> div.tempting-texts>h4, .temptation> div.tempting-texts>p {
+   color: var(--font-color-1);
+   text-align: center;
+ }
+ .temptation> div.tempting-texts>h4 {
+  font-size: 28px;
+}
+ .temptation> div.tempting-texts>p {
+  width:70%;
+  font-size: 10px;
+   }
 }
