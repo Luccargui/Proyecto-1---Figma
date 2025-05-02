@@ -500,7 +500,7 @@ padding: var(--padding-s) 0px var(--padding-s) var(--padding-l);
 
  .section-with-scroll {
   display: grid;
-  column-gap: var(--gap-s);
+  column-gap: var(--gap-m);
   grid-auto-flow: column;
   grid-auto-columns: 38%;
   overflow-x: auto;
